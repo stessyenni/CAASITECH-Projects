@@ -41,11 +41,5 @@
             "type": "chrome",
             "webRoot": "${workspaceFolder}"
         },
-        {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Open index.html",
-            "file": "/Users/stessy/Desktop/CAASITECH/Project-1/index.html"
-        }
     ]
 }
