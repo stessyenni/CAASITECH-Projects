@@ -1,0 +1,70 @@
+.frame{
+    width: 50%;
+    height: 40%;
+    /* border: 3px solid black; */
+    align-content: justify center;
+    position: center;
+    text-align: justify;
+    margin: 30% 20%;
+    /* margin-right: 15px; */
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding-inline: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(252, 255, 254);
+}
+
+
+.section-1 p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    color: rgb(91, 90, 88);
+}
+
+.section-1 h2 {
+    font-family: robbo;
+    font-size: 33px;
+    padding-bottom: 2px;
+    padding-top: 4px;
+}
+
+.section-2 {
+    background-color: rgba(243, 228, 233, 0.689);
+    padding-bottom: 5px;
+    padding-top: 3px;
+}
+
+.section-3 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+    font-size: 14px;
+    line-break: 3px;
+    color: rgb(91, 90, 88);
+}
+
+.section-4 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    color: rgb(91, 90, 88);
+}
+
+.section-5 p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    color: rgb(91, 90, 88);
+}
+
+/* table {
+    border-bottom: 1px solid grey;
+} */
+
+td {
+    /* border-right: 1px solid grey; */
+    /* border-left: 1px solid grey; */
+    padding-bottom: 3px;
+}
+
+th {
+    /* border-right: 1px solid grey; */
+    padding-bottom: 3px;
+}
