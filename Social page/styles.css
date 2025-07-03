@@ -74,7 +74,7 @@ body {
 button {
     width: 240px;
     height: 40px;
-    background-color: rgb(45, 33, 33);
+    background-color: rgba(37, 26, 26, 0.367);
     color: white;
     font-weight: bolder;
     border-radius: 10.5px;
