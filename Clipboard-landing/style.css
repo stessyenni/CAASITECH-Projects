@@ -142,7 +142,10 @@ body p {
 }
 
 .track-img {
+    width: fit-content;
     display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .access {
@@ -440,9 +443,13 @@ footer {
         width: 600px;
         height: auto;
     }
+    .track-img img {
+        width: 600px;
+        height: auto;
+    }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 768px) {
     body {
         width: 100%;
     }
@@ -450,5 +457,13 @@ footer {
     .frame {
         width: 100%;
         height: auto;
-    } 
+    }
+    .access-img img {
+        width: 600px;
+        height: auto;
+    }
+    .track-img img {
+        width: 600px;
+        height: auto;
+    }
 }
