@@ -31,7 +31,7 @@ body p {
     flex-direction: column;
     justify-content: center;
     gap: 60px;
-    background-image: url("/Users/stessy/Desktop/CAASITECH/Clipboard-landing/assets/clipboard-landing-page-master/images/bg-header-desktop.png");
+    background-image: url("/Users/stessy/Documents/GitHub/CAASITECH-Projects/Clipboard-landing/assets/clipboard-landing-page-master/images/bg-header-desktop.png");
     width: 100%;
 }
 
@@ -450,6 +450,5 @@ footer {
     .frame {
         width: 100%;
         height: auto;
-    }
-    
+    } 
 }
