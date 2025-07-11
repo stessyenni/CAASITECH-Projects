@@ -1,4 +1,15 @@
 {
     "editor.formatOnSave": false,
-    "editor.formatOnPaste": true
+    "editor.formatOnPaste": true,
+    "editor.linkedEditing": true,
+    "editor.mouseWheelZoom": true,
+    "editor.parameterHints.enabled": true,
+    "editor.rename.enablePreview": true,
+    "editor.roundedSelection": true,
+    "editor.selectionHighlight": true,
+    "editor.find.addExtraSpaceOnTop": true,
+    "multiDiffEditor.experimental.enabled": true,
+    "editor.minimap.showRegionSectionHeaders": true,
+    "editor.minimap.showMarkSectionHeaders": true,
+    "files.autoSaveDelay": 100
 }
