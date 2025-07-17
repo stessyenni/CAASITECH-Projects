@@ -6,13 +6,172 @@
 
 body {
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #b1ddd9;
+    color: #6e6d6d;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
 }
- 
+
+.container {
+    width: 35%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    gap: 35px;
+}
+
+.header {
+    color: #000000c8;
+    font-size: 15px;
+}
+
 h1 {
     text-align: justify;
 }
 
 .form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.name input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.firstname {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.firstname input {
+    width: 80%;
+}
+
+.lastname {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lastname input {
+    width: 100%;
+}
+
+.email {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.email input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+p {
+    font-size: 14px;
+    font-family: 'Trebuchet MS';
+}
+
+.query {
+    width: 550px;
+    display: flex;
+    flex-direction: row;
+}
+
+.query-type {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    text-align: justify;
+}
+
+.query-sub {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.general {
+    width: 50%;
+    padding-left: 20px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.general input {
+    height: 40px;
+    border-radius: 5px;
+}
+
+
+.support {
+    width: 50%;
+    padding-left: 20px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.support input {
+    height: 40px;
+}
+
+
+.consent {
+    width: 80%;
+    height: 10%;
+    font-style: oblique;
+}
+
+.consent input {
+     width: 15px;
+     height: 15px;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(1, 112, 77);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;        
 }
