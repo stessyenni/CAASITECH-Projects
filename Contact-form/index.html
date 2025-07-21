@@ -32,44 +32,50 @@
                             <input type="text" id="name" name="lastname" required>
                         </div>
                     </div>
-                
-                    </div>
 
-                    <div class="email">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
+            </div>
 
-                    <div class="query-type">
-                    <div class="query">
-                        <form action="query">Query Type</form>
-                    </div>
+            <div class="email">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
 
-                    <div class="query-sub">
-                        <div class="general">
-                            <input type="radio" name="GeneralEnquiry" id="query" name="GeneralEnquiry" value="General Enquiry" required>
-                            <label for="query">General Enquiry</label>
-                        </div>
-
-                        <div class="support">
-                            <input type="radio" name="SupportRequest" id="query" name="SupportRequest" value="Support required" required>
-                            <label for="query">Support Required</label>
-                        </div>
-                        </div>
-                    </div>
-                </form>
-
-                <div class="consent">
-                    <p>
-                        <input type="checkbox"name="consent" id="consent" required>
-                        <label for="consent">
-                            I consent to being contacted by the team
-                            </label>
-                    </p>
+            <div class="query-type">
+                <div class="query">
+                    <form action="query">Query Type</form>
                 </div>
-                <div>
-                    <button>Submit</button>
+
+                <div class="query-sub">
+                    <div class="general">
+                        <input type="radio" name="GeneralEnquiry" id="query" name="GeneralEnquiry"
+                            value="General Enquiry" required>
+                        <label for="query">General Enquiry</label>
+                    </div>
+
+                    <div class="support">
+                        <input type="radio" name="SupportRequest" id="query" name="SupportRequest"
+                            value="Support Required" required>
+                        <label for="query">Support Required</label>
+                    </div>
                 </div>
+            </div>
+
+            <div class="message">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" cols="30" rows="10" required></textarea>
+            </div>
+            </form>
+
+            <div class="consent">
+                <p>
+                    <input type="checkbox" name="consent" id="consent" required>
+                    <label for="consent">
+                        I consent to being contacted by the team
+                    </label>
+                </p>
+            </div>
+            <div>
+                <button>Submit</button>
             </div>
         </div>
     </body>

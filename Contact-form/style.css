@@ -6,7 +6,7 @@
 
 body {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@ body {
 
 .container {
     width: 35%;
-    padding: 30px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     background: #fff;
@@ -153,6 +153,12 @@ label {
     height: 40px;
 }
 
+.message {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
 .consent {
     width: 80%;
@@ -161,8 +167,8 @@ label {
 }
 
 .consent input {
-     width: 15px;
-     height: 15px;
+    width: 15px;
+    height: 15px;
 }
 
 button {
@@ -173,5 +179,60 @@ button {
     font-weight: bold;
     border: none;
     border-radius: 5px;
-    cursor: pointer;        
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        width: 100%;
+        padding: 20px;
+        height: auto;
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .name {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .query-sub {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .general {
+        width: 100%;
+        height: 50px;
+        font-size: 15px;
+        border-radius: 5px;
+        background: #ffffff;
+    }
+
+    .support {
+        width: 100%;
+        height: 50px;
+        font-size: 15px;
+        border-radius: 5px;
+        background: #ffffff;
+    }
+
+    .message {
+        width: 100%;
+    }
+
+    .message textarea {
+        width: 100%;
+        height:60%;
+    }
+
 }
