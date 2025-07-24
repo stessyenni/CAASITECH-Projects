@@ -7,4 +7,4 @@ function calculator (a, b, operator) {
   }
   return calculator[operator](a, b)
 }
-console.log(calculator(34, 86, 'multiply'))
+console.log(calculator(3, 86, 'divide'))
