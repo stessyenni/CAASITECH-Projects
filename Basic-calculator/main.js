@@ -9,7 +9,8 @@
 // }
 // console.log(calculator(34, 86, 'multiply'))
 
-function calculator (a, b, operator) {
+function calculator(a, b, operator) {
+  let
   return calculator[operator](a, b)
 }
 
