@@ -1,4 +1,4 @@
-// Calculator with if else
+// Basic Calculator with if else
 function calculator (a, b, operator) {
   if (operator === 'add') {
     return a + b
@@ -13,7 +13,7 @@ function calculator (a, b, operator) {
 
 console.log(calculator(4, 7, 'multiply'))
 
-// method 2
+// method 2 - Basic Calculator with objects
 // function calculator (a, b, operator) {
 // let calculator = {
 // add: (a, b) => a + b,
