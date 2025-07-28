@@ -1,3 +1,9 @@
+// method 1
+function calculator(add, subtract, multiply, divide) {
+  let add
+}
+
+// method 2
 // function calculator (a, b, operator) {
 // let calculator = {
 // add: (a, b) => a + b,
@@ -5,29 +11,33 @@
 // multiply: (a, b) => a * b,
 // divide: (a, b) => a / b
 // }
+
+// // console.log(calculator['add'](19, 23))
 // return calculator[operator](a, b)
 // }
 // console.log(calculator(34, 86, 'multiply'))
 
-function calculator (a, b, operator = '') {
-  let calculator = {add, subtract, multiply, divide}
-  return calculator[operator](a, b)
-}
+// function calculator (a, b, operator = '') {
+// let calculator = {add, subtract, multiply, divide}
 
-function add (a, b) {
-  return a + b
-}
+// console.log(calculator)
+// return calculator[operator](a, b)
+// }
 
-function subtract (a, b) {
-  return a - b
-}
+// function add (a, b) {
+// return a + b
+// }
 
-function multiply (a, b) {
-  return a * b
-}
+// function subtract (a, b) {
+// return a - b
+// }
 
-function divide (a, b) {
-  return a / b
-}
+// function multiply (a, b) {
+// return a * b
+// }
 
-console.log(calculator(34, 86, 'subtract'))
+// function divide (a, b) {
+// return a / b
+// }
+
+// console.log(calculator(34, 86, 'subtract'))
