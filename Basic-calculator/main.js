@@ -9,6 +9,6 @@
 // }
 // console.log(calculator(3, 86, 'divide'))
 
-function calculator(a, b, operator) {
-  let calculator 
+function calculator (a, b, operator) {
+  let calculator
 }
