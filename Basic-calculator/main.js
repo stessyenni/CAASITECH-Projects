@@ -1,7 +1,17 @@
-// method 1
-function calculator(add, subtract, multiply, divide) {
-  let add
+// Calculator with if else
+function calculator (a, b, operator) {
+  if (operator === 'add') {
+    return a + b
+  } else if (operator === 'subtract') {
+    return a - b
+  } else if (operator === 'divide') {
+    return a / b
+  } else {
+    return 'Invalid operation'
+  }
 }
+
+console.log(calculator(4, 7, 'multiply'))
 
 // method 2
 // function calculator (a, b, operator) {
