@@ -13,6 +13,15 @@ function calculator (a, b, operator) {
 
 console.log(calculator(4, 7, 'multiply'))
 
+// Basic Calculator with summarised if else using ? & :
+function calculator (a, b, operator) {
+  return operator === 'add' ? a + b :
+    operator === 'subtract' ? a - b :
+      operator === 'divide' ? a / b : 'Invalid operation'
+}
+
+console.log(calculator(8, 7, 'add'))
+
 // method 2 - Basic Calculator with objects
 // function calculator (a, b, operator) {
 // let calculator = {
