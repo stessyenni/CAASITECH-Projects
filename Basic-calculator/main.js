@@ -11,16 +11,16 @@ function calculator (a, b, operator) {
   }
 }
 
-console.log(calculator(4, 7, 'multiply'))
+console.log(calculator(456, 77, 'divide'))
 
 // Basic Calculator with summarised if else using ? & :
 function calculator (a, b, operator) {
   return operator === 'add' ? a + b :
     operator === 'subtract' ? a - b :
-      operator === 'divide' ? a / b : 'Invalid operation'
+      operator === 'divide' ? a / b : 'Invalid operation: Please Input the available valid operators'
 }
 
-console.log(calculator(8, 7, 'add'))
+console.log(calculator(88, 17, 'multiply'))
 
 // method 2 - Basic Calculator with objects
 // function calculator (a, b, operator) {
