@@ -2,7 +2,6 @@
 // return value()
 // }
 function whatType (value) {
-  let whatType = value
   if (value % 2 === 0) {
     console.log(`${value} is an Even Number`)
   } else {
