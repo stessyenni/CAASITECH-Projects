@@ -1,3 +1,6 @@
 document.addEventListener['DOMContentLoaded'.function() {
-   const form  = 
+    var contactForm = document.querySelectorAll('form-container');
+
+    //adding functionality to the form's submit button
+    const submitForm = document.form['submitBtn']
 }]
