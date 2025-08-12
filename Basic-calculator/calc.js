@@ -3,11 +3,17 @@ document.addEventListener('DOMContentLoaded', function () {
   const Decrement = document.querySelector('.btn2')
   let numInput = document.querySelector('#input')
 
+  function inputNumber (number) {
+    let a = parseInt(numInput.value) || 0
+    let b = a + number
+    numInput.value = b
+  }
+
   Increment.addEventListener('click', function () {
-    alert('Increment Button Clicked')
+    inputNumber(+1)
   })
 
-  Decrement.addEventListener('decrement', 'click', function () {})
-
-  numInput.addEventListener('input', function () {})
+  Decrement.addEventListener('click', function () {
+    inputNumber(-1)
+  })
 })
