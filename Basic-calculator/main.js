@@ -22,6 +22,15 @@ function calculator (a, b, operator) {
 
 console.log(calculator(88, 17, 'multiply'))
 
+// Increment and Decrement
+function increment (a) {
+  return a + 1
+}
+
+function decrement (a) {
+  return a - 1
+}
+
 // method 2 - Basic Calculator with objects
 // function calculator (a, b, operator) {
 // let calculator = {
