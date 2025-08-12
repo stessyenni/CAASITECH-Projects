@@ -60,6 +60,7 @@ form {
     height: 40px;
     border: 1px solid #000;
     border-radius: 5px;
+    padding: 20PX;
 }
 
 .firstname {
@@ -95,6 +96,7 @@ form {
     height: 40px;
     border: 1px solid #000;
     border-radius: 5px;
+    padding: 20px;
 }
 
 p {
@@ -160,6 +162,10 @@ label {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+.message textarea {
+    padding: 20px;
+    text-align: justify;
 }
 
 .consent {
