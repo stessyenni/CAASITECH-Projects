@@ -12,15 +12,23 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 </head>
+
 <body>
-    <div>
-        <h1>Basic Calculator</h1>
-        <input type="number" id="input1" placeholder="Enter first number">
-        <input type="number" id="input2" placeholder="Enter second number">
-        <button id="add">Add</button>
-        <button id="subtract">Subtract</button>
-        <button id="multiply">Multiply</button>
-        <button id="divide">Divide</button>
-    </div>
+        <div class="title">
+            <h1>Basic Calculator</h1>
+        </div>
+
+        <div class="inputs">
+        <input type="number" id="input1" value="0" placeholder="0">
+        <input type="number" id="input2" value="0" placeholder="0">
+        <input type="number" id="result" value="" placeholder="Value">
+        </div>
+
+        <div class="buttons">
+        <button class="add">Add</button>
+        <button class="subtract">Subtract</button>
+        <button class="multiply">Multiply</button>
+        <button class="divide">Divide</button>
+        </div>
 </body>
 </html>
