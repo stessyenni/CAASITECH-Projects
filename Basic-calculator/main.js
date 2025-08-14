@@ -23,14 +23,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function dividenum () {
     if (Number(num2.value) === 0) {
-      result.value = 'Error';
+      result.value = 'Error'
     } else {
       result.value = Number(num1.value) / Number(num2.value)
     }
-// return result.value = 'Error' ? Number(num2.value) === 0 :
-//   result.value = Number(num1.value) / Number(num2.value)
+    // return result.value = 'Error' ? Number(num2.value) === 0 :
+    //   result.value = Number(num1.value) / Number(num2.value)
 
   }
+
+  // Adding eventListener to the buttons to run the functions
 
   btnAdd.addEventListener('click', addnum)
   btnSubtract.addEventListener('click', subtractnum)
