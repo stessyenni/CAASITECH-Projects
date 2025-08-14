@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-  let num1 = document.querySelector('.input1')
-  let num2 = document.querySelector('.input2')
-  let result = document.querySelector('.result')
+  let num1 = document.querySelector('#input1')
+  let num2 = document.querySelector('#input2')
+  let result = document.querySelector('#result')
 
   const btnAdd = document.querySelector('.add')
   const btnSubtract = document.querySelector('.subtract')
@@ -9,27 +9,33 @@ document.addEventListener('DOMContentLoaded', function () {
   const btnDivide = document.querySelector('.divide')
 
   // Creating functions for each button
-  function add () {
+  function addnum () {
     result.value = Number(num1.value) + Number(num2.value)
   }
 
-  function subtract () {
+  function subtractnum () {
     result.value = Number(num1.value) - Number(num2.value)
   }
 
-  function multiply () {
+  function multiplynum () {
     result.value = Number(num1.value) * Number(num2.value)
   }
 
-  function divide () {
-    return result.value = 'Error' ? Number(num2.value) === 0 :
+  function dividenum () {
+    if (Number(num2.value) === 0) {
+      result.value = 'Error';
+    } else {
       result.value = Number(num1.value) / Number(num2.value)
+    }
+// return result.value = 'Error' ? Number(num2.value) === 0 :
+//   result.value = Number(num1.value) / Number(num2.value)
+
   }
 
-  btnAdd.addEventListener('click', add)
-  btnSubtract.addEventListener('click', subtract)
-  btnMultiply.addEventListener('click', multiply)
-  btnDivide.addEventListener('click', divide)
+  btnAdd.addEventListener('click', addnum)
+  btnSubtract.addEventListener('click', subtractnum)
+  btnMultiply.addEventListener('click', multiplynum)
+  btnDivide.addEventListener('click', dividenum)
 })
 
 // Basic Calculator with if else
