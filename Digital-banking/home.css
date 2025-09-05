@@ -16,6 +16,17 @@ body {
     gap: 50px;
 }
 
+.active {
+    color: white;
+    background-color: rgb(5, 5, 123);
+}
+
+a {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
 nav {
     width: 100%;
     height: 15%;
@@ -44,6 +55,7 @@ nav div {
 
 ul {
     list-style: none;
+    text-decoration: none;
     width: 100%;
     height: fit-content;
     display: flex;
@@ -140,6 +152,7 @@ button {
 .sec2 {
     width: 80%;
     height: 100%;
+    padding-bottom: 20px;
     /* border: 2px solid black; */
     display: flex;
     flex-direction: column;
@@ -389,7 +402,7 @@ footer {
 }
 
 section {
-    width: 80%;
+    width: 90%;
     height: 100%;
     /* border: 2px solid black; */
     background-color: rgb(31, 26, 73);
@@ -446,16 +459,33 @@ section {
 .foot2 {
     width: 100%;
     height: 100%;
+    text-decoration: none;
 }
 
 .foot2 ul {
     list-style: none;
+    text-decoration: none;
     /* border: 2px solid black; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
+}
+
+.foot2 ul a {
+    color: white;
+}
+
+.foot3 {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+}
+
+.foot3 ul a {
+    color: white;
 }
 
 .menu2 {
@@ -466,7 +496,6 @@ section {
 .menu2 ul {
     width: 100%;
     height: 100%;
-    list-style: none;
     /* border: 2px solid black; */
     display: flex;
     flex-direction: column;
