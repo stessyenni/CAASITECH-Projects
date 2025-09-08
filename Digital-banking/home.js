@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   let navitems = document.querySelectorAll('nav div ul li a')
+  let sidebar = document.querySelector('.sidebar')
 
   navitems.forEach((item) => {
     item.addEventListener('click', () => {
@@ -8,5 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       item.classList.add('active')
     })
+  })
+  sidebar.addEventListener('click', () => {
+    sidebar.style.display = 'flex'
   })
 })
