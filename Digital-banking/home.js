@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
   let navitems = document.querySelectorAll('nav div ul li a')
+  let sidebarBtn = document.querySelector('.sideBtn')
   let sidebar = document.querySelector('.sidebar')
+  let closeBtn =document.querySelector('.sidebar .sideBtn')
 
   navitems.forEach((item) => {
     item.addEventListener('click', () => {
@@ -10,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
       item.classList.add('active')
     })
   })
-  sidebar.addEventListener('click', () => {
-    sidebar.style.display = 'flex'
+
+  sidebarBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('show')
   })
 })
