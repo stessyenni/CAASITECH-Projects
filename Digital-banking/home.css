@@ -27,7 +27,8 @@ a {
     color: black;
 }
 
-.sidebar, .sideBtn {
+.sidebar,
+.sideBtn {
     display: none;
 }
 
@@ -605,6 +606,11 @@ section {
         width: 100%;
     }
 
+    .sidebar,
+    .sideBtn {
+        display: flex;
+    }
+
     nav div {
         width: 100%;
         height: 100%;
@@ -614,6 +620,19 @@ section {
         justify-content: space-between;
         gap: 25px;
         /* background-color: red;  */
+    }
+
+    .navright button {
+        width: 100%;
+        height: 40px;
+        border: 2px solid black;
+        color: white;
+        border-radius: 70px;
+        background: linear-gradient(to right, rgb(48, 227, 197), rgb(13, 221, 110));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
     }
 
     .webnav ul {
