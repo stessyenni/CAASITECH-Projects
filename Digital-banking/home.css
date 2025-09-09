@@ -17,8 +17,8 @@ body {
 }
 
 .active {
-    color: white;
-    background-color: rgb(5, 5, 123);
+    color: black;
+    background-color: rgb(47, 255, 165);
 }
 
 a {
@@ -552,8 +552,8 @@ section {
     }
 
     .active {
-        color: white;
-        background-color: rgb(5, 5, 123);
+        color: black;
+        background-color: rgb(47, 255, 165);
     }
 
     a {
@@ -594,6 +594,21 @@ section {
         /* background-color: red; */
     }
 
+    .sideBar {
+        width: 20%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 100;
+
+        /* background-color: red; */
+    }
+
     .show {
         right: 0;
     }
@@ -606,8 +621,13 @@ section {
         width: 100%;
     }
 
+    .sideBtn a {
+        width: 20%;
+    }
+
     .sidebar,
     .sideBtn {
+        width: 20%;
         display: flex;
     }
 
