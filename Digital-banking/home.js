@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  let navitems = document.querySelectorAll('nav div ul li a')
+  let navitems = document.querySelectorAll('div ul li a')
   let sideBar = document.querySelectorAll('.sidebar ul li a')
   let sidebarBtn = document.querySelector('.sideBtn')
   let sidebar = document.querySelector('.sidebar')
