@@ -4,6 +4,8 @@ import Cards from './cards/card.jsx'
 import Header from './header.jsx'
 import Footer from './footer.jsx';
 import Food from './foods/food.jsx'
+import BasicForm from '@/components/BasicForm.jsx';
+
 
 
 export default function Home() {
@@ -15,11 +17,13 @@ export default function Home() {
       <h2>Count: {count}</h2>
       <CustomBtn name='Decrement' OnBtnClick={() => setCount(count - 1)} /> */}
       {/* <Counter /> */}
-      <Header />
 
-      <Food />
+      <div>
+        
+      </div>
       
-      <Footer />
+      <BasicForm />
+      
     </main>
   )
 }
