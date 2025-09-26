@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import * as Yup from 'yup' 
 
-const BasicForm = () => {
+    const BasicForm = () => {
     // insert form data as variables in a useState function as an array to handle the form data
             const [formData, SetFormData] = useState({
                 firstName: "",
@@ -15,128 +16,69 @@ const BasicForm = () => {
                 interests: [],
                 birthDate: "",
             });
-    // create a handleChange variable to handle the change event of the input fields to add data using the onChange function
-const handleChange = (e) => {
-    const {name, value} = e.target;
-        SetFormData({
-            ...formData,
-            [name]: value
-        })
-    }
-    
-    // create a handleChange variable to handle the change event of the input fields to add data using the onChange function
-const handleCheckboxChange = (e) => {
-    const {name, checked} = e.target;
-    let updatedInterests = [...formData.interests];
-        if (checked) {
-            updatedInterests.push(name);
-        } else {
-            updatedInterests = updatedInterests.filter(
-                (interests) => interest !== name
-            );
-        }
-
-        SetFormData({
-            ...formData,
-            interests: updatedInterests,
-        })
-    }
-
     //Create a state to handle errors
-const [errors, setErrors] = useState()
+        const [errors, setErrors] = useState({})
 
-    //Create an isValid variable with a function to handle 
-const isValidEmail = (email) => {
-        //The regular expression for basic email validation
-        const emailRegex = /^\S+@\S+\.\S+$/;
-        return emailRegex.test(email);
-    };
-
-    //The regular expression for basic phone number validation (09 digits for Cameroon)
-    // const isValidPhoneNumber = (phoneNumber) => {
-    //     const phoneRegex = /^\d{09}$/;
-    //     return phoneRegex.test(phoneNumber);
-    // };
-
-    //The regular expression for basic password validation
-const isValidPassword = () => {
-        const symbolRegex = /[!@#%^&*(),.?":{}|<>]/;
-        const numberRegex = /[0.9]/;
-        const uppercaseRegex = /[A-Z]/;
-        const lowercaseRegex = /[a-z]/;
-        return (
-            password.length >= 8 &&
-            symbolRegex.test(password) &&
-            numberRegex.test(password) &&
-            uppercaseRegex.test(password) &&
-            lowercaseRegex.test(password)
-        );
-    }
-
-const isValidAge = (age) => {
-            return parseInt(age) >= 16 && parseInt(age) <= 100;
-    };
-
-
-    // create a validateForm variable and function to handle the form input validation
-const validateForm = () => {
-        let newErrors = {}
-        if (!formData.firstName) {
-            newErrors.firstName = "First name is Required"
-        }
-        if (!formData.lastName) {
-            newErrors.lastName = "Last name is Required"
-        }
-        if (!formData.email) {
-            newErrors.email = "Invalid Email!"
-        } else if (!isValidEmail(formData.email)) {
-            newErrors.email = "Invalid Email format"
-        }
-    
-        if (!formData.password) {
-            newErrors.password = "Password is Required"
-        } else if (!isValidPassword(formData.password)) {
-            newErrors.password = "Password must be atleast 8 characters long and contain at least one symbol, number, one uppercase letter, and one lowercase letter";
-        }
-        if (!formData.confirmPassword) {
-            newErrors.confirmPassword = "Confirm Password is Required";
-        } else if (formData.confirmPassword !== formData.password) {
-            newErrors.confirmpassword = "Phone Number must be 09 digits";
-        }
-        if (!formData.age) {
-            newErrors.age = "Age is Required"
-        } else if (!isValidAge(formData.age)) {
-            newErrors.age = "You must be atleast 16years old and above";
-        }
-        if (!formData.gender) {
-            newErrors.gender = "Gender is Required";
-        }
-        if (!formData.interests.length === 0) {
-            newErrors.interests = "Select atleast one interest";
-        }
-        if (!formData.birthDate) {
-            newErrors.birthDate = "Date of Birth is Required"
-        }
-
-        setErrors(newErrors);
-        return object.keys(newErrors).length === 0;
-    };
-    console.log(errors);
-
-    // create a function to handle the submit button 
-const SubmitBtn = (e) => {
+        // create a function to handle the submit button 
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const isValid = validateForm();
-        if (isValid) {
-            console.log("Form Submitted", formData)
-        } else {
-            console.log("Form Validation Failed!")
+        try {
+        await validationSchema.validate(formData, {abortEarly: false});
+            console.log('Form Submitted', formData);
+        } catch (error) {
+            const newErrors = {};
+
+            error.inner.forEach((err) => {
+                newErrors[err.path] = err.message;
+            });
+            setErrors(newErrors);
+            // console.log("Error Msg", formData);
         }
-      }
+}
+        
+    //Create a validation schema variable with a function to handle all the form fields using Yup
+    const validationSchema = Yup.object({
+            firstName: Yup.string().required("First Name is required"),
+            lastName: Yup.string().required(""),
+            email: Yup.string("Invalid email").required('Email is required'),
+            password: Yup.string().required("Password is Required").matches(5, 'Password must be atleast 5 characters').matches(/[!@#%^&*(),.?":{}|<>]/, 'Password contain at least one symbol').matches(/[A-Z]/, 'Password must contain at least one uppercase letter').matches(/[a-z]/, 'Password must contain at least one lowercase letter'),
+            confirmPassword: Yup.string().oneOf([Yup.ref("password")], 'Passwords must match').required(),
+            age: Yup.number().typeError("Age must be a number").min(16, 'Must be atleast 16years old').required("Age is required"),
+            gender: Yup.string().required(""),
+            interests: Yup.array().min(1, 'Must have atleast one interest').required("Interest is required"),
+            birthDate: Yup.date().required("Date of birth is required"),
+        })
+    
+        // create a handleChange variable to handle the change event of the input fields to add data using the onChange function
+        const handleChange = (e) => {
+        let {name, value} = e.target;
+            SetFormData({
+                ...formData,
+                [name]: value,
+            });
+        }
+        
+        const handleCheckboxChange = (e) => {
+        let {name, checked} = e.target;
+        let updatedInterests = [...formData.interests];
+            if (checked) {
+                updatedInterests.push(name);
+            } else {
+                updatedInterests = updatedInterests.filter(
+                    (interest) => interest !== name
+                );
+            }
+
+            SetFormData({
+                ...formData,
+                interests: updatedInterests,
+            })
+        }
+        
     return (
         <div className='BasicForm'>
-            <form className='form' onSubmit={SubmitBtn}>
-                <div className='FirstName'>
+            <form className='form' onSubmit={handleSubmit}>
+                <div className='FirstName flex gap-8'>
                     <label>First Name:</label>
                         <input
                             type="text"
@@ -144,10 +86,11 @@ const SubmitBtn = (e) => {
                             value={formData.firstName}
                             placeholder='Enter your first name'
                             onChange={handleChange}
-                        />
+                    />
+                    {errors.firstName && <div className='error'>{errors.firstName}</div>}
                 </div>
 
-                <div className='LastName'>
+                <div className='LastName flex gap-10'>
                     <label>Last Name:</label>
                     <input
                         type="text"
@@ -156,9 +99,10 @@ const SubmitBtn = (e) => {
                         placeholder='Enter your last name'
                         onChange={handleChange}
                     />
+                    {errors.lastName && <div className='error'>{errors.lastName}</div>}
                 </div>
 
-                <div className='Email'>
+                <div className='Email flex gap-5'>
                     <label>Email:</label>
                     <input
                         type="email"
@@ -167,11 +111,12 @@ const SubmitBtn = (e) => {
                         placeholder='Enter your Email'
                         onChange={handleChange}
                     />
+                    {errors.email && <div className='error'>{errors.email}</div>}
                 </div>
 
-                <div className='PhoneNumber'>
+                <div className="width-100 flex flex-row items-center gap-7">
                     <label>Phone Number:</label>
-                    <PhoneInput
+                    <PhoneInput className='text-black'
                         inputProps={{
                             name: 'phone',
                             required: true,
@@ -180,7 +125,7 @@ const SubmitBtn = (e) => {
                     />
                 </div>
                 
-                <div className='Password'>
+                <div className='Password flex gap-10'>
                     <label>Password:</label>
                     <input
                         type="password"
@@ -189,6 +134,7 @@ const SubmitBtn = (e) => {
                         placeholder='******'
                         onChange={handleChange}
                     />
+                    {errors.password && <div className='error padding-10'>{errors.password}</div>}
                 </div>
                 
                 <div className='ConfirmPassword'>
@@ -200,6 +146,7 @@ const SubmitBtn = (e) => {
                         placeholder='Confirm your password'
                         onChange={handleChange}
                     />
+                    {errors.confirmPassword && <div className='error'>{errors.confirmPassword}</div>}
                 </div>
                 
                 <div className='Age'>
@@ -211,6 +158,7 @@ const SubmitBtn = (e) => {
                         placeholder='Enter your Age'
                         onChange={handleChange}
                     />
+                    {errors.age && <div className='error'>{errors.age}</div>}
                 </div>
                 
                 <div className='Gender'>
@@ -221,6 +169,7 @@ const SubmitBtn = (e) => {
                         <option value="female">Female</option>
                         <option value="other">Other</option>
                     </select>
+                    {errors.gender && <div className='error'>{errors.gender}</div>}
                 </div>
                 
                 <div className='Interests'>
@@ -256,6 +205,7 @@ const SubmitBtn = (e) => {
                             />
                             Reading
                         </label>
+                        {errors.interests && <div className='error'>{errors.interests}</div>}
                         </div>
                 </div>
                 
@@ -267,7 +217,8 @@ const SubmitBtn = (e) => {
                             value={formData.birthDate}
                             placeholder='Enter your Date of Birth'
                             onChange={handleChange}
-                        />
+                    />
+                    {errors.birthDate && <div className='error'>{errors.birthDate}</div>}
                 </div>
                 
                 <div className='submitBtn'>

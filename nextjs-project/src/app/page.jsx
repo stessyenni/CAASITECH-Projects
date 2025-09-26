@@ -12,7 +12,7 @@ export default function Home() {
   const [count, setCount] = useState(0)
   
   return (
-    <main>
+    <main className='w-full'>
       {/* <CustomBtn name='Increment' OnBtnClick={() => setCount(count + 1)} />
       <h2>Count: {count}</h2>
       <CustomBtn name='Decrement' OnBtnClick={() => setCount(count - 1)} /> */}
