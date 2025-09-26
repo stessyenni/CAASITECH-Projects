@@ -41,7 +41,7 @@ import * as Yup from 'yup'
             firstName: Yup.string().required("First Name is required"),
             lastName: Yup.string().required(""),
             email: Yup.string("Invalid email").required('Email is required'),
-            password: Yup.string().required("Password is Required").matches(5, 'Password must be atleast 5 characters').matches(/[!@#%^&*(),.?":{}|<>]/, 'Password contain at least one symbol').matches(/[A-Z]/, 'Password must contain at least one uppercase letter').matches(/[a-z]/, 'Password must contain at least one lowercase letter'),
+            password: Yup.string().required("Password is Required").matches(5, '').matches(/[!@#%^&*(),.?":{}|<>]/, 'Password contain at least one symbol').matches(/[A-Z]/, 'Password must contain at least one uppercase letter').matches(/[a-z]/, 'Password must contain at least one lowercase letter'),
             confirmPassword: Yup.string().oneOf([Yup.ref("password")], 'Passwords must match').required(),
             age: Yup.number().typeError("Age must be a number").min(16, 'Must be atleast 16years old').required("Age is required"),
             gender: Yup.string().required(""),
