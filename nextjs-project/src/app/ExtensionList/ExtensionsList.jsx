@@ -23,8 +23,6 @@ function ExtensionsList(props) {
           </button>
       </div>
       </div>
-
-      
   </>
   )
 }

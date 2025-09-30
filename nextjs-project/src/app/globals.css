@@ -437,3 +437,54 @@ input {
   display: flex;
   align-items: center;
 }
+.mainSearch {
+  background: rgb(40, 40, 74);
+  border-radius: 18px;
+  font-weight: bolder;
+  color: white;
+}
+
+.mainSearch input {
+  border: none;
+
+}
+
+.finderCard {
+  width: 45%;
+  font-family: 'Courier New', Courier, monospace;
+  background: rgb(40, 40, 74);
+  padding: 15px;
+  color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10;
+}
+
+.dev-title {
+  font-weight: bolder;
+}
+
+.dev-Subtitle {
+  color: rgb(39, 103, 214);
+  font-weight: bold;
+}
+
+.join-date {
+  font-size: 13px;
+  font-weight: 190;
+}
+
+.stats {
+  width: 80%;
+  height: auto;
+  padding: 5px;
+  background-color: rgb(24, 32, 60);
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
