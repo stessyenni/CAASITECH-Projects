@@ -15,7 +15,7 @@ function DevFinderPage() {
     ]
   return (
       <div className='flex flex-col gap-10'>
-          
+          {/* <SearchBar /> */}
           <div className='grid grid-cols-1'>
                 {
                     FinderCard.map((card, index) => (
