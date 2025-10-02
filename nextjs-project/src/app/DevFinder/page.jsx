@@ -1,36 +1,16 @@
-
 import React from 'react'
-import DevFinder from './DevFinder'
 import SearchBar from '@/components/SearchBar'
-// import DevUser from './DevUser'
+import DevHeader from './DevHeader'
+import DevFinder from './DevFinder'
 
-function DevFinderPage() {
-    const FinderCard = [
-        {
-            image: '/profile2.png',
-            title: 'The Octocat',
-            Subtitle: '@octocat',
-            para: 'This profile has no bio',
-        },
-    ]
+const page = () => {
   return (
-      <div className='flex flex-col gap-10'>
-          {/* <SearchBar /> */}
-          <div className='grid grid-cols-1'>
-                {
-                    FinderCard.map((card, index) => (
-                        <DevFinder
-                            key={index}
-                            image={card.image}
-                            title={card.title}
-                            Subtitle={card.Subtitle}
-                            para={card.para}
-                        />
-                    ))
-                }
-          </div>
+      <div className='font-mono rounded-lg p-30 bg-[#141d2f] flex flex-col gap-[20px] items-center'>
+          <DevHeader />
+          <SearchBar />
+          <DevFinder />
     </div>
   )
 }
 
-export default DevFinderPage
+export default page

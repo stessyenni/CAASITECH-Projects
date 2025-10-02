@@ -1,23 +1,17 @@
 import React from 'react'
-import { IoSearch } from "react-icons/io5";
+import {IoSearch} from "react-icons/io5";
 
 const SearchBar = () => {
     return (
-        <form className='searchBar w-full relative'>
-            
-            <div className='searchtab relative'>
-                
-                <div className='mainSearch'>
-                    <input className=' relative left-10' type="text" placeholder='Search Github username' />
-                    <button className='Searchicon absolute left-8 top-1/3 -translate-x-1'>
-                        <IoSearch className='text-2xl text-blue-600' />
-                    </button>
-                </div>
-
-                <input className='absolute right-1/30 top-0 bottom-0 -translate-y-1' type="button" placeholder='Search' />
-            </div>
-        </form>
-  )
+        <div className='w-[60%] h-[50px] bg-[#1e2a48] rounded-lg flex items-center relative'>
+            <button>
+                <IoSearch className='text-2xl text-blue-700' />
+            </button>
+            <input className='w-full text-white' type="text" value='Search Github username' />
+            <input className='w-fit h-[40px] absolute top-[6px] bottom-[6px] right-2 bg-[#0079ff] px-[20px] rounded-lg'
+                type="button" value='Search' />
+        </div>
+    )
 }
 
 export default SearchBar

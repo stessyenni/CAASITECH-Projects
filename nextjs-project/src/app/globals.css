@@ -192,12 +192,14 @@ body {
   color: white;
 }
 
-.grid {
+/* .grid {
   width: 100%;
   padding: 0px 65px;
   display: grid;
   gap: 10px;
 }
+
+*/
 
 .extenCard {
   width: 100%;
