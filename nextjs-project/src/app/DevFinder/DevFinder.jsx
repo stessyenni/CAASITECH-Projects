@@ -87,7 +87,7 @@ function DevFinder(props) {
                                       }
                                   </div>
 
-                                  <div className='grid grid-cols-2 gap-y-[16px]'>
+                                  <div className='grid grid-cols-2 gap-20'>
                                       {
                                           details.map((detail, index) => (
                                               <div className='flex items-center gap-16' key={index}>
