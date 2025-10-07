@@ -5,43 +5,43 @@ import {IoIosLink} from "react-icons/io";
 import {TiSocialTwitter} from "react-icons/ti";
 import { CgOrganisation } from "react-icons/cg";
 
-function DevFinder() {
+function DevFinder({data}) {
     const stats = [
         {
             stat: 'Repos',
-            value: '8',
+            value: data.public_repos??0,
         },
         {
             stat: 'Followers',
-            value: '3938',
+            value: data.followers??0,
         },
         {
             stat: 'Following',
-            value: '9',
+            value: data.following??0,
         },
     ]
 
     const details = [
         {
             detail: <FaLocationDot />,
-            value: 'Yaounde',
+            value: data.location??'none',
         },
         {
             detail: <TiSocialTwitter />,
-            value: 'Not Available',
+            value: data.twitter_username??'none',
         },
         {
             detail: <IoIosLink />,
-            value: 'Not Available',
+            value: data.url,
         },
         {
             detail: <CgOrganisation />,
-            value: '@github',
+            value: data.organizations_url??'none',
         },
     ]
 
   return (
-      <div className='w-[60%] bg-[#1e2a48] rounded-lg p-20 row flex gap-5'>
+      <div className='min-w-[60%] bg-[#1e2a48] rounded-lg p-20 row flex gap-5'>
           <div>
               <img className='w-full h-[65px] rounded-full' src='./profile2.png' alt="Profile Picture" />
           </div>
@@ -49,8 +49,8 @@ function DevFinder() {
               <div className='flex justify-between'>
                   <div className='flex flex-col gap-5'>
                       <div className='flex flex-col gap-5'>
-                          <p className='text-white'>The Octacat</p>
-                          <p className='text-[#15488c] font-bold'>@octacat</p>
+                          <p className='text-white'>{data.name ?? ''}</p>
+                          <p className='text-[#15488c] font-bold'>{data.login ?? ''}</p>
                       </div>
                       <p className='text-gray-400'>This profile has no bio</p>
                   </div>
@@ -71,7 +71,7 @@ function DevFinder() {
                           <div className='grid grid-cols-2 gap-[30px]'>
                               {
                                   details.map((detail, index) => (
-                                      <div className='flex items-center gap-[16px]' key={index}>
+                                      <div className='flex items-center gap-[26px]' key={index}>
                                           <div className='text-[20px] text-white'>{detail.detail}</div>
                                           <p className='text-gray-400'>{detail.value}</p>
                                       </div>

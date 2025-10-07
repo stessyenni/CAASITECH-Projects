@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //       operator === 'divide' ? a / b : 'Invalid operation: Please Input the available valid operators'
 // }
 
+
 // console.log(calculator(88, 17, 'multiply'))
 
 // method 2 - Basic Calculator with objects
