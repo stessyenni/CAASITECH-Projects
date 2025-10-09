@@ -5,7 +5,7 @@ import {IoSearch} from "react-icons/io5";
 const SearchBar = ({input, setInput, onClick}) => {
     return (
         <div className='min-w-[60%] min-w-[70%] h-[50px] px-10 bg-[#1e2a48] rounded-lg flex items-center relative'>
-            <button >
+            <button>
                 <IoSearch className='text-3xl absolute left-1 bottom-2 pl-2 text-blue-700' />
             </button>
             <input className='w-full focus:outline-none text-white' type="text" placeholder='Search Github username' value={input}
