@@ -1,10 +1,9 @@
 import TodoItems from '@/components/TodoItems';
 import React, {useEffect, useRef, useState} from 'react'
-import {MdDeleteSweep} from 'react-icons/md';
 import {IoRadioButtonOff, IoRadioButtonOn} from 'react-icons/io5';
 
 
-const Todo = ({task, toggleComplete}) => {
+const Todo = ({}) => {
   const [todoList, setTodoList] = useState(localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [])
   // Using the inputRef to get the value that is entered in to the Input field.
   // And trim() will remove the extra space at the beginning
@@ -47,6 +46,15 @@ const Todo = ({task, toggleComplete}) => {
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todoList)) // The JSON.stringify stores the input data in the broswer storage by converting the data to a string
   }, [todoList])
+
+  const todoStats = (todoList) => {
+    let activeCount = 0;
+    let completedCount = 0;
+    for (const todo of todoList) {
+      if ()
+    }
+  }
+  
   return (
     <div className='h-[0px] border- bg-[#25273c] text-gray-500 flex flex-col gap-5 cursor-pointer'>
       <div className='h-[60px] bg-[#25273c] flex flex-row items-center gap-5 px-3'>
@@ -68,7 +76,7 @@ const Todo = ({task, toggleComplete}) => {
         })} 
         {/* <TodoItems text={'Learn Coding'} />
         <TodoItems text={'Learn JavaScript online course'} /> */}
-        <div className='w-full bg- font-bold flex justify-between text-[#4b4b69] cursor-pointer'>
+        <div className='w-full p-5 bg- font-bold flex justify-between text-[#4b4b69] cursor-pointer'>
           <p>5 hours left</p>
           <div className='cursor-pointer flex gap-10'>
             <button>All</button>
