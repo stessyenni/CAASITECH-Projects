@@ -1,9 +1,9 @@
 import TodoItems from '@/components/TodoItems';
-import React, {useEffect, useRef, useState} from 'react'
+import React, {act, useEffect, useRef, useState} from 'react'
 import {IoRadioButtonOff, IoRadioButtonOn} from 'react-icons/io5';
 
 
-const Todo = ({}) => {
+const Todo = () => {
   const [todoList, setTodoList] = useState(localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [])
   // Using the inputRef to get the value that is entered in to the Input field.
   // And trim() will remove the extra space at the beginning
@@ -43,17 +43,51 @@ const Todo = ({}) => {
     })
   }
 
+  // Using the useState to filter the various tasks from the todoList
+
+  const [filter, setFilter] = useState("all"); // all | active | completed
+
+  const stats = () => {
+    let activeCount = 0;
+    let completedCount = 0;
+
+    for (let i = 0; i < todoList.length; i++) {
+      if (todoList[i].isComplete) {
+        completedCount++;
+      } else {
+        activeCount++;
+      }
+    }
+    return {activeCount, completedCount};
+  }
+  const {activeCount, completedCount} = stats();
+  const totalCount = activeCount + completedCount;
+    
+    function getFilteredTasks () {
+      const filtered = [];
+      
+      for (let i = 0; i < todoList.length; i++) {
+        if (filter === 'active' && !todo[i].isComplete) {
+          filtered.push(todoList[i]);
+        } else if (filter === 'completed' && todo[i].isComplete) {
+          filtered.push(todoList[i]);
+        } else if (filter === 'all') {
+          filtered.push(todoList[i]);
+        }
+      }
+      return filtered;
+    }
+
+  const displayedTasks = getFilteredTasks()
+
+  const clearAllTodos = () => {
+  setTodoList([]); // removes every task
+};
+
+    
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todoList)) // The JSON.stringify stores the input data in the broswer storage by converting the data to a string
   }, [todoList])
-
-  const todoStats = (todoList) => {
-    let activeCount = 0;
-    let completedCount = 0;
-    for (const todo of todoList) {
-      if ()
-    }
-  }
   
   return (
     <div className='h-[0px] border- bg-[#25273c] text-gray-500 flex flex-col gap-5 cursor-pointer'>
@@ -64,7 +98,7 @@ const Todo = ({}) => {
       </div>
 
       <div className='bg-[#25273c]'>
-        {todoList.map((item, index) => {
+        {getFilteredTasks().map((item, index) => {
           return <TodoItems
             key={index}
             text={item.text}
@@ -79,13 +113,13 @@ const Todo = ({}) => {
         <div className='w-full p-5 bg- font-bold flex justify-between text-[#4b4b69] cursor-pointer'>
           <p>5 hours left</p>
           <div className='cursor-pointer flex gap-10'>
-            <button>All</button>
-            <button>Active</button>
-            <button>Completed</button>
+            <button>All: {totalCount}</button>
+            <button>Active: {activeCount}</button>
+            <button>Completed: {completedCount}</button>
           </div>
           <div className='cursor-pointer flex gap-3'>
-            <button>Clear</button>
-            <button>Completed</button>
+            <button onClick={clearAllTodos}>Clear</button>
+            <button>Completed: {completedCount}</button>
           </div>
         </div>
       </div>
