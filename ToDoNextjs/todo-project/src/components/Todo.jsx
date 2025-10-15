@@ -43,11 +43,11 @@ const Todo = () => {
     })
   }
 
-  // Using the useState to filter the various tasks from the todoList
+  // Using the useState to filter the various tasks from the todoList. The counts are assigned values so the loop 
 
   const [filter, setFilter] = useState("all"); // all | active | completed
 
-  const stats = () => {
+  function stats () {
     let activeCount = 0;
     let completedCount = 0;
 
@@ -60,7 +60,7 @@ const Todo = () => {
     }
     return {activeCount, completedCount};
   }
-  const {activeCount, completedCount} = stats();
+  const {activeCount, completedCount} = stats(); // This is so whenever the todoList or filter changes the values are re-rendered
   const totalCount = activeCount + completedCount;
     
     function getFilteredTasks () {
