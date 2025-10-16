@@ -43,9 +43,8 @@ const Todo = () => {
     })
   }
 
-  // Using the useState to filter the various tasks from the todoList. The counts are assigned values so the loop 
-
-  const [filter, setFilter] = useState("all"); // all | active | completed
+  // Using the useState to filter the various tasks from the todoList. The counts are assigned values so the loop can reset both parameters to 0 
+  // and ignores other values passed to the function which uses the variables as local counters.
 
   function stats () {
     let activeCount = 0;
