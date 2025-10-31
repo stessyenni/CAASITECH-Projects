@@ -5,10 +5,8 @@ import ResourcePage from "./resources/page";
 
 export default function Home() {
   return (
-    <div className="w-full font-poppins flex justify-center min-h-screen">
+    <div className="min-w-full flex">
       <UrlPage />
-      <PricingPage />
-      <ResourcePage />
     </div>
   );
 }

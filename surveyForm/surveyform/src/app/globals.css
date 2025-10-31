@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+form>div {
+  @apply flex flex-col gap-3
+}
+
+input {
+  @apply shadow-md border-slate-300
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -14,12 +22,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: white;
-    }
+    --background: #ffffff;
+    --foreground: #000000;
+  }
 }
 
 body {
-
   background: var(--background);
   color: var(--foreground);
 }

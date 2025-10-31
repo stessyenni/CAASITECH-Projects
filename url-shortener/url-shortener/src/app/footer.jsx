@@ -1,12 +1,12 @@
+'use client'
 import React from 'react'
-// import Logo from '../public/logo.svg'
 
 const Urlfooter = () => {
   return (
-    <div className='flex flex-col'>
-      <footer className='w-full py-10 flex items-center justify-center text-white border-1 bg-[#232027]'>
-        <div className='w-[90%] flex justify-between border-'>
-          <h1 className='text-[28px] text-white font-bold'>Shortly</h1>
+    <section className=' flex-col items-center justify-center'>
+      <footer className='w- py-10  items-center justify-center text-white border-1 bg-[#232027]'>
+        <div className='w flex justify-between border-'>
+          <h1 className='text-[38px] text-white font-bold'>Shortly</h1>
           <div className='flex items-center gap-20'>
             <div className='flex flex items-center gap-15'>
               <div className='flex flex-col gap-2 text-[18px] font-bold'>
@@ -64,7 +64,7 @@ const Urlfooter = () => {
           </div>
         </div>
       </footer>
-    </div>
+    </section>
   )
 }
 
