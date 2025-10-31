@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import * as Yup from 'yup'
 
 export default function SurveyForm() {
+    const [fullname, setFullname] = useState('')
   // create a handleChange variable to handle the change event of the input fields to add data using the onChange function
         const handleChange = (e) => {
         let {name, value} = e.target;
@@ -21,11 +22,12 @@ export default function SurveyForm() {
           <label htmlFor='fullname' className='font-bold text-[16px]'>
             1. What are your full names?
           </label>
-          <input
-            className='lg:w-[40%] h-11 border rounded-lg px-3'
+                  <input
+                      className='lg:w-[40%] h-11 border rounded-lg px-3'
             type='text'
             id='fullname'
-            placeholder='e.g John Doe' />
+                      placeholder='e.g John Doe'
+                  />
         </div>
 
         <div className='flex flex-col gap-3'>
