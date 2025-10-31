@@ -1,10 +1,13 @@
 import React from 'react'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import ( useState ) from 'react';
 import * as Yup from 'yup'
 
 export default function SurveyForm() {
-  // create a handleChange variable to handle the change event of the input fields to add data using the onChange function
+  const [fullname, setFullname] = useState()
+
+// create a handleChange variable to handle the change event of the input fields to add data using the onChange function
         const handleChange = (e) => {
         let {name, value} = e.target;
             SetFormData({
