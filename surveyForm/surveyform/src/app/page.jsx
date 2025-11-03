@@ -1,4 +1,3 @@
-'use client'
 import SurveyForm from '@/components/surveyform'
 import React from 'react'
 

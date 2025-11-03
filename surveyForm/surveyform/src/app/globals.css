@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
-form>div {
-  @apply flex flex-col gap-3
-}
+
 
 input {
   @apply shadow-md border-slate-300
