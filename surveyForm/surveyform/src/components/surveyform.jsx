@@ -66,7 +66,7 @@ export default function SurveyForm () {
                 placeholder='e.g John Doe' />
            
             
-            <label htmlFor='age' className='font-bold text-[16px] lg:text-[17px] lg:font-bold'>
+            <label htmlFor='age' className='font-bold text-[16px] lg:text-[17px]'>
                 2. Which is your Age Range?*
             </label>
             <div className='lg:w-[40%] grid grid-cols-2 gap-y-3 md:grid-cols-3'>
