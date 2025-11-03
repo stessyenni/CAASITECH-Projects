@@ -42,8 +42,6 @@ export default function SurveyForm () {
       const {msg} = await res.json();
     //   setError(msg)
     //   console.log(error);
-      
-
   }
 
   return (
