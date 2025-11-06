@@ -2,47 +2,75 @@
 import React, { useState } from 'react'
 
 export default function SurveyForm () {
-    const [values, setValues] = useState({
-        fullname: '',
-        age: '',
-        email: '',
-        education: '',
-        department: '',
-        jobtitle: '',
-        jobtype: '',
-    })
+    // const [values, setValues] = useState({
+    //     fullname: '',
+    //     age: '',
+    //     email: '',
+    //     education: '',
+    //     department: '',
+    //     jobtitle: '',
+    //     jobtype: '',
+    // })
+
+    // const [quest, setQuest] = useState(localStorage.getItem('values') ? JSON.parse(localStorage.getItem('values')) : '')
+
+    const [fullname, setFullname] = useState('')
+    const [age, setAge] = useState('')
+    const [email, setEmail] = useState('')
+    const [education, setEducation] = useState('')
+    const [department, setDepartment] = useState('')
+    const [jobtitle, setJobtitle] = useState('')
+    const [jobtype, setJobtype] = useState('')
+    const [submitted, setSubmitted] = useState(false)
+    
+
+    // const [message, setMessage] = useState('')
 
     // const [error, setError] = useState([])
+
+    //The appreciation displays only after the form has been submitted
     
-    const handleChanges = (e) => {
-        setValues({...values, [e.target.name]:[e.target.value]})
-    }
     
+    // const handleChanges = (e) => {
+    //     setValues({ ...values, [e.target.name]: e.target.value })
+    // }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-      console.log(values)
+    console.log({fullname, age, email, education, department, jobtitle, jobtype})
       
-      const res = await fetch('api/survey', {
+      const res = await fetch('/api/survey', {
           method: 'POST',
           headers: {
               'content-type': 'application/json',
           },
-          body: JSON.stringify({
-              fullname: '',
-              age: '',
-              email: '',
-              education: '',
-              department: '',
-              jobtitle: '',
-              jobtype: '',
-          }),
+          body: JSON.stringify({fullname, age, email, education, department, jobtitle, jobtype}),
       });
-      const {msg} = await res.json();
-    //   setError(msg)
-    //   console.log(error);
+
+      if (!res.ok) {
+          const errData = await res.json();
+          console.error('Server error', errData.msg)
+          return;
+      }
+      
+      const { msg, success } = await res.json();
+      //   setError(msg)
+      setSubmitted(success)
+      console.log('Successful:', msg);
+      setSubmitted(true);
+
+      if (submitted) {
+          setFullname('');
+          setAge('');
+          setEmail('');
+          setEducation('');
+          setDepartment('');
+          setJobtitle('');
+          setJobtype('');
+      }
   }
+    
 
   return (
     <div className='w-full p-5 border-10 border-x-[#3c357c] border-y-[#ea5535] flex flex-col gap-12'>
@@ -55,8 +83,9 @@ export default function SurveyForm () {
                 1. What are your full names?*
             </label>
             <input
-                onChange={(e) => handleChanges(e)} required
-                // value={fullname}
+                onChange={(e) => setFullname(e.target.value)}
+                  required
+                value={fullname}
                 className='lg:w-[40%] h-11 border rounded-lg px-3'
                         type='text'
                     name='fullname'    
@@ -69,19 +98,48 @@ export default function SurveyForm () {
             </label>
             <div className='lg:w-[40%] grid grid-cols-2 gap-y-3 md:grid-cols-3'>
                 <label>
-                <input type='radio' name='age' id='age' onChange={(e) => handleChanges(e)} /> 20-24 years
+                      <input
+                          type='radio'
+                          name='age'
+                          id='age'
+                          value='20-24'
+                        onChange={(e) => setAge(e.target.value)}
+                      /> 20-24 years
                 </label>
                 <label>
-                <input type='radio' name='age' id='age' onChange={(e) => handleChanges(e)} /> 25-29 years
+                      <input
+                          type='radio'
+                          name='age'
+                          id='age'
+                          value='25-29'
+                        onChange={(e) => setAge(e.target.value)}
+                      /> 25-29 years
                 </label>
                 <label>
-                <input type='radio' name='age' id='age'onChange={(e) => handleChanges(e)} /> 30-34 years
+                      <input
+                          type='radio'
+                          name='age'
+                          id='age'
+                          value='30-34'
+                        onChange={(e) => setAge(e.target.value)}
+                      /> 30-34 years
                 </label>
                 <label>
-                <input type='radio' name='age' id='age' onChange={(e) => handleChanges(e)} /> 35-49 years
+                      <input
+                          type='radio'
+                          name='age' id='age'
+                          value='35-49'
+                        onChange={(e) => setAge(e.target.value)}
+                      /> 35-49 years
                 </label>
                 <label>
-                <input type='radio' name='age' id='age' onChange={(e) => handleChanges(e)} /> 50-60 years
+                      <input
+                          type='radio'
+                          name='age'
+                          id='age'
+                          value='50-60'
+                        onChange={(e) => setAge(e.target.value)}
+                      /> 50-60 years
                 </label>
             </div>
             
@@ -89,8 +147,9 @@ export default function SurveyForm () {
                 3. Your Email Address*
             </label>
             <input
-                onChange={(e) => handleChanges(e)} required
-                // value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                  required
+                value={email}
                 className='lg:w-[40%] h-11 border rounded-lg px-2'
                         type='email'
                         name='email'
@@ -101,8 +160,11 @@ export default function SurveyForm () {
             <label htmlFor='education' className='font-bold text-[16px] lg:text-[17px] lg:font-bold'>
                 5. What is your educational level?*
             </label>
-            <select name='education' id='education' onChange={(e) => handleChanges(e)} required className='w-[40%] h-10 border-slate-300 shadow-md'>
-                <option value='select'>
+              <select name='education' id='education'
+                  value={education}
+                onChange={(e) => setEducation(e.target.value)}
+                  required className='w-[40%] h-10 border-slate-300 shadow-md'>
+                <option value=''>
                 Select
                 </option>
                 <option value='Olevel'>
@@ -127,8 +189,9 @@ export default function SurveyForm () {
                 6. What is your Department*
             </label>
             <input
-                onChange={(e) => handleChanges(e)} required
-                // value={department}
+                onChange={(e) => setDepartment(e.target.value)}
+                  required
+                value={department}
                 className='lg:w-[40%] h-11 border rounded-lg px-2'
                         type='text'
                         name='department'
@@ -139,8 +202,11 @@ export default function SurveyForm () {
             <label htmlFor='JobTitle' className='font-bold text-[16px] lg:text-[17px] lg:font-bold'>
                 7. What is your Job Title*
             </label>
-            <select name='jobtitle' id='jobtitle' onChange={(e) => handleChanges(e)} required className='w-[40%] h-10 border-slate-300 shadow-md'>
-                <option value='select'>
+              <select name='jobtitle' id='jobtitle'
+                  value={jobtitle}
+                onChange={(e) => setJobtitle(e.target.value)}
+                  required className='w-[40%] h-10 border-slate-300 shadow-md'>
+                <option value=''>
                 Select
                 </option>
                 <option value='AppDeveloper'>
@@ -168,8 +234,11 @@ export default function SurveyForm () {
                 8. What is your Job type?*
                     </label>
                     
-                    <select name='jobtype' id='jobtype' onChange={(e) => handleChanges(e)} required className='w-[40%] h-10 border-slate-300 shadow-md'>
-                        <option value='select'>
+              <select name='jobtype' id='jobtype'
+                  value={jobtype}
+                onChange={(e) => setJobtype(e.target.value)}
+                  required className='w-[40%] h-10 border-slate-300 shadow-md'>
+                        <option value=''>
                             Select
                         </option>
                         <option value='PartTime'>
@@ -187,7 +256,7 @@ export default function SurveyForm () {
             </button>
             </div>
       </form>
-      <h2 className='font-bold text-[16px] text-center'>Thank You For Your Response!</h2>
+      {submitted && <h2 className='font-bold text-[16px] text-center'>Thank You For Your Response!</h2>}
     </div>
   )
 }
