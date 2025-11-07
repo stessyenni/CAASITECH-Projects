@@ -22,21 +22,22 @@ export default function SurveyForm () {
     const [jobtitle, setJobtitle] = useState('')
     const [jobtype, setJobtype] = useState('')
     const [submitted, setSubmitted] = useState(false)
+    const [success, setSuccess] = useState(false)
     
 
     // const [message, setMessage] = useState('')
 
     // const [error, setError] = useState([])
 
-    //The appreciation displays only after the form has been submitted
-    
     
     // const handleChanges = (e) => {
     //     setValues({ ...values, [e.target.name]: e.target.value })
-    // }
-
+  // }
+  
+//The appreciation displays only after the form has been submitted
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setSubmitted(true);
 
     console.log({fullname, age, email, education, department, jobtitle, jobtype})
       
@@ -50,17 +51,18 @@ export default function SurveyForm () {
 
       if (!res.ok) {
           const errData = await res.json();
-          console.error('Server error', errData.msg)
+        console.error('Server error', errData.msg)
+        setSubmitted(true)
+        setSuccess(false);
           return;
       }
       
       const { msg, success } = await res.json();
       //   setError(msg)
-      setSubmitted(success)
+      setSuccess(success)
       console.log('Successful:', msg);
-      setSubmitted(true);
 
-      if (submitted) {
+      if (success) {
           setFullname('');
           setAge('');
           setEmail('');
@@ -73,11 +75,11 @@ export default function SurveyForm () {
     
 
   return (
-    <div className='w-full p-5 border-10 border-x-[#3c357c] border-y-[#ea5535] flex flex-col gap-12'>
+    <div className='w-full p-5 border-10 border-x-[#3c357c] border-y-[#ea5535] flex flex-col gap-12 cursor-pointer'>
       <h1 className='font-bold text-center text-[24px] text-[#000249] '>New Employee Data Survey Form</h1>
           
               <form onSubmit={handleSubmit}
-              className='text-[13.7px] flex flex-col lg:flex-col lg:items-center  lg:p- gap-5 '>
+              className='text-[13.7px] flex flex-col lg:flex-col lg:items-center cursor-pointer lg:p- gap-5 '>
             
             <label htmlFor='fullname' className='lg:text-[17px] lg:font-bold'>
                 1. What are your full names?*
@@ -251,12 +253,19 @@ export default function SurveyForm () {
                     </select>
             
             <div className='lg:w-[60%] flex items-center justify-center lg:items-center'>
-            <button type='submit' className='w-[50%]  h-[30px] lg:h-13 border bg-[#ea5535] text-white font-bold text-[16px] rounded-2xl'>
+            <button type='submit' className='w-[50%]  h-[30px] lg:h-13 border bg-[#3c357c] text-white font-bold text-[16px] rounded-2xl'>
                 Submit
             </button>
             </div>
       </form>
-      {submitted && <h2 className='font-bold text-[16px] text-center'>Thank You For Your Response!</h2>}
+      {submitted && success &&
+        <h2 className={'font-bold text-[16px] text-center text-green-800'}>
+          Thank You For Your Response!</h2>
+      }
+      {submitted && !success &&
+        <h2 className={'font-bold text-[16px] text-center text-red-500'}>
+          Something went wrong! Please try again</h2>
+      }
     </div>
   )
 }
