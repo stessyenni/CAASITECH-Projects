@@ -23,6 +23,7 @@ export default function SurveyForm () {
     const [jobtype, setJobtype] = useState('')
     const [submitted, setSubmitted] = useState(false)
     const [success, setSuccess] = useState(false)
+    const [isSubmitting, setIsSubmitting] = useState(false)
     
 
     // const [message, setMessage] = useState('')
@@ -38,6 +39,7 @@ export default function SurveyForm () {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setSubmitted(true);
+    setIsSubmitting(true);
 
     console.log({fullname, age, email, education, department, jobtitle, jobtype})
       
@@ -253,8 +255,8 @@ export default function SurveyForm () {
                     </select>
             
             <div className='lg:w-[60%] flex items-center justify-center lg:items-center'>
-            <button type='submit' className='w-[50%]  h-[30px] lg:h-13 border bg-[#3c357c] text-white font-bold text-[16px] rounded-2xl'>
-                Submit
+            <button type='submit' className={`${isSubmitting ? 'w-[50%] h-[30px] lg:h-13 border border-black bg-[#ea5535] font-bold text-[16px] rounded-2xl text-gray-700' : 'w-[50%] h-[30px] lg:h-13 border border-black bg-[#3c357c] text-white font-bold text-[16px] rounded-2xl'}`}>
+                {isSubmitting ? 'Form Submitted!' : 'Submit'}
             </button>
             </div>
       </form>
